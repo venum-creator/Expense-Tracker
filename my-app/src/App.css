@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --primary-color: #34495e;
+  --secondary-color: #3498db;
+  --background-color: #f5f7fa;
+  --text-color: #2c3e50;
+  --income-color: #2ecc71;
+  --expense-color: #e74c3c;
+  --highlight-color: #f39c12;
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.container {
+  margin: -5px auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  padding-bottom: 1px;
+  box-shadow: var(--box-shadow);
+  width: 95%;
+}
+
+h1 {
+  letter-spacing: 1px;
+  margin: 0 0 20px;
+  color: var(--primary-color);
+}
+
+h2 {
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+h3 {
+  border-bottom: 2px solid var(--highlight-color);
+  padding-bottom: 10px;
+  margin: 20px 0 10px;
+  color: var(--primary-color);
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.exp-container {
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.exp-container > div:first-of-type {
+  border-right: 1px solid #e0e0e0;
+}
+
+.money {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 5px 0;
+}
+
+.money.plus {
+  color: var(--income-color);
+}
+
+.money.minus {
+  color: var(--expense-color);
+}
+
+label {
+  display: inline-block;
+  margin: 5px 0;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+  outline: 0;
+  background-color: #fff;
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: var(--secondary-color);
+}
+
+input[type="number"] {
+  width: 50%;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 15px 0;
+  padding: 10px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.list {
+  cursor: pointer;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.list li {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.list li.plus {
+  border-left: 4px solid var(--income-color);
+}
+
+.list li.minus {
+  border-left: 4px solid var(--expense-color);
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: var(--expense-color);
+  border: 0;
+  color: #fff;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+@media (max-width: 500px) {
+  body {
+    justify-content: flex-start;
+    min-height: 75vh;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 501px) {
+  body {
+    justify-content: flex-start;
+    min-height: 75vh;
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: xx-large;
+  }
+
+  .container {
+    margin: -17px auto;
+  }
+}
+
+select {
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  padding: 8px;
+  /* width: 100%; */
+  outline: 0;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  border-color: #3498db;
+}
+
+.amount-choice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
